@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var descriptionTextView: TextView
     private lateinit var refreshButton: Button
     private lateinit var videoPlaceHolderImage: ImageView
+    private lateinit var progressBar: ProgressBar
 
     private lateinit var viewModel: MyViewModel
 
@@ -35,20 +37,25 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize UI elements
         imageView = findViewById(R.id.imageView)
-        videoPlaceHolderImage = findViewById(R.id.video_placeholder_image)
+        videoPlaceHolderImage = findViewById(R.id.videoPlaceholderImage)
         titleTextView = findViewById(R.id.titleTextView)
         dateTextView = findViewById(R.id.dateTextView)
         descriptionTextView = findViewById(R.id.descriptionTextView)
         refreshButton = findViewById(R.id.refreshButton)
-        playerView = findViewById(R.id.player_view)
+        playerView = findViewById(R.id.playerView)
+        progressBar = findViewById(R.id.progressBar)
+
+        // Setting up exo player
         exoPlayer = ExoPlayer.Builder(this@MainActivity).build()
         playerView.player = exoPlayer
+
 
         // Initialize the ViewModel
         viewModel = ViewModelProvider(this)[MyViewModel::class.java]
 
         // Observe fetched response to update the UI.
         viewModel.data.observe(this) { responseData ->
+            progressBar.visibility = View.GONE
             updateUiWithData(responseData)
             updateImageVisibility(responseData.mediaType)
         }
@@ -60,11 +67,11 @@ class MainActivity : AppCompatActivity() {
 
         // Set up a click listener for the refresh button.
         refreshButton.setOnClickListener {
-            viewModel.fetchImageOfTheDay()
+            viewModel.fetchImageOfTheDay(context = this@MainActivity)
         }
 
         // Fetch the initial image of the day.
-        viewModel.fetchImageOfTheDay()
+        viewModel.fetchImageOfTheDay(this@MainActivity)
     }
 
     override fun onStop() {
