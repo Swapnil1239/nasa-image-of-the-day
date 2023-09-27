@@ -29,13 +29,18 @@ Follow these steps to get the app up and running on your Android device.
 ### Installation
 
 1. Clone the repository:
+   - With Https:
 
    ```bash
    git clone https://github.com/Swapnil1239/nasa-images-app.git
 
-2. Open the project in Android Studio.
+   - With ssh:
+   ```bash
+    git clone git@github.com:Swapnil1239/nasa-image-of-the-day.git
 
-3. Build and run the app on your emulator or device.
+3. Open the project in Android Studio.
+
+4. Build and run the app on your emulator or device.
 
 ## Usage
 Launch the app, and you will be presented with NASA's "Image of the Day" along with details such as date, explanation, and title. You can refresh the content to see a new image or video every day.
