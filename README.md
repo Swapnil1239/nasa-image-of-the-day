@@ -31,7 +31,7 @@ Follow these steps to get the app up and running on your Android device.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/nasa-images-app.git
+   git clone https://github.com/Swapnil1239/nasa-images-app.git
 
 2. Open the project in Android Studio.
 
