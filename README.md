@@ -15,7 +15,7 @@ The NASA Images and Videos Fetching App is designed to provide users with daily 
 
 ## Screenshots
 
-![Screenshot 1](https://drive.google.com/file/d/1fPvCwcHo2HPUhqKJ99jUpyhr2uuivUtK/view?usp=sharing)
+[Screenshot 1](https://drive.google.com/file/d/1fPvCwcHo2HPUhqKJ99jUpyhr2uuivUtK/view?usp=sharing)
 
 ## Getting Started
 
